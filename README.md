@@ -1,6 +1,6 @@
 # Nyaya API
 
-This FastAPI application provides legal advice based on the Indian Penal Code (IPC) sections. By leveraging the Groq client for natural language processing, the API retrieves relevant legal information and offers advice based on user queries.
+This Nyaya application provides legal advice based on the Indian Penal Code (IPC) sections. By leveraging the Groq client for natural language processing, the API retrieves relevant legal information and offers advice based on user queries.
 
 ## Table of Contents
 
