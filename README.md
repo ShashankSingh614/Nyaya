@@ -46,7 +46,7 @@ This Nyaya application provides legal advice based on the Indian Penal Code (IPC
    ```
       
 ### Running Locally (Without Docker)
-1. **Install Python**: Download Python from [official Python website](https://www.python.org/downloads/) to install Python on your machine.
+1. **Install Python**: Follow the instructions on the [official Python website](https://www.python.org/downloads/) to install Python on your machine.
 2. **Clone the Repository**:
    
    ```
