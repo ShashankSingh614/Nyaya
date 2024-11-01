@@ -1,6 +1,6 @@
 # FastAPI Legal Advice API
 
-This is a FastAPI application that provides legal advice based on the Indian Penal Code (IPC) sections. The API leverages the Groq client for natural language processing and offers endpoints to retrieve legal information and advice.
+This FastAPI application provides legal advice based on the Indian Penal Code (IPC) sections. By leveraging the Groq client for natural language processing, the API retrieves relevant legal information and offers advice based on user queries.
 
 ## Table of Contents
 
@@ -15,13 +15,14 @@ This is a FastAPI application that provides legal advice based on the Indian Pen
 ## Features
 
 - Provides legal advice based on IPC sections.
-- Simple and intuitive API design.
-- Automatically generated API documentation.
+- Simple and intuitive API design with endpoints for different legal advice use cases.
+- Automatically generated API documentation accessible at /docs when the application is running.
 
 ## Requirements
 
 - Docker (if using Docker)
 - Python 3.6 or higher (if running locally)
+- An active Groq API key for using the Groq client.
 
 ## Installation
 
@@ -29,9 +30,11 @@ This is a FastAPI application that provides legal advice based on the Indian Pen
 
 1. **Install Docker**: Follow the instructions on the [official Docker website](https://www.docker.com/get-started) to install Docker on your machine.
 2. **Clone the Repository**:
-   ```bash
+   ```
+   bash
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
+   '''
 Build the Docker Image:
 bash
 
