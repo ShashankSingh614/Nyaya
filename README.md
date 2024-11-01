@@ -46,11 +46,11 @@ This FastAPI application provides legal advice based on the Indian Penal Code (I
 1. **Install Python**: Download Python from [python.org](https://www.python.org/downloads/).
 2. **Clone the Repository**:
    ```
-    git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/yourusername/your-repo.git
    cd your-repo
    ```
 4. **Set Up a Virtual Environment (optional)**:
-  ```
+   ```
    python -m venv venv
    ```
 6. **Activate the virtual environment***:
@@ -71,13 +71,13 @@ This FastAPI application provides legal advice based on the Indian Penal Code (I
    uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ```
 
-##Usage
+## Usage
 
 After the application is running, you can access the API at [http://localhost:8000](http://localhost:8000).
 
-##API Endpoints
+## API Endpoints
 
-###Get Legal Advice: 
+### Get Legal Advice: 
 - **Endpoint**: /get_legal_advice/
 - **Method**: POST
 - **Request Body**:
@@ -89,12 +89,12 @@ After the application is running, you can access the API at [http://localhost:80
    ```
 - **Response**: Legal advice related to the IPC section.
   
-###Get IPC Sections:
+### Get IPC Sections:
 - **Endpoint**: /ipc_sections/
 - **Method**: GET
 - **Response**: List of IPC sections.
 
-##Testing
+## Testing
 
 You can test the API using tools like Postman or cURL. Here’s an example of a cURL command to get legal advice:
 ```
