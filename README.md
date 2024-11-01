@@ -114,4 +114,8 @@ curl -X POST "http://localhost:8000/get_legal_advice/" -H "Content-Type: applica
 
 ## License
 
+<<<<<<< HEAD
 This project is licensed under the MIT License - see the [LICENSE file](/LICENSE.txt) for details.
+=======
+This project is licensed under the MIT License - see the [LICENSE file](/LICENSE.txt) for details.
+>>>>>>> 39058b8e2b703c9edfa1e4cf99386bbf87a9bf18
