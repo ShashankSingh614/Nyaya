@@ -28,57 +28,43 @@ This Nyaya application provides legal advice based on the Indian Penal Code (IPC
 
 ### Using Docker
 1. **Install Docker**: Follow the instructions on the [official Docker website](https://www.docker.com/get-started) to install Docker on your machine.
-2. **Clone the Repository**:'
+2. **Clone the Repository**:
    
-   ```
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
-   ```  
-4. **Build the Docker Image**:
+   `git clone https://github.com/yourusername/your-repo.git`  
+   `cd your-repo`
    
-   ```
-   docker build -t my-fastapi-app .
-   ```
-6. **Run the Docker Container**:
+3. **Build the Docker Image**:
    
-   ```
-   docker run -d -p 8000:8000 my-fastapi-app
-   ```
-      
+   `docker build -t my-fastapi-app .`
+
+4. **Run the Docker Container**:
+   
+   `docker run -d -p 8000:8000 my-fastapi-app`
+
 ### Running Locally (Without Docker)
 1. **Install Python**: Follow the instructions on the [official Python website](https://www.python.org/downloads/) to install Python on your machine.
 2. **Clone the Repository**:
    
-   ```
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
-   ```
-4. **Set Up a Virtual Environment (optional)**:
+   `git clone https://github.com/yourusername/your-repo.git`  
+   `cd your-repo`
+
+3. **Set Up a Virtual Environment (optional)**:
    
-   ```
-   python -m venv venv
-   ```
-6. **Activate the virtual environment***:
+   `python -m venv venv`
+
+4. **Activate the Virtual Environment**:
    - On Windows:
-     
-     ```
-      venv\Scripts\activate
-     ```
+     `venv\Scripts\activate`
    - On macOS/Linux:
-     
-     ```
-      source venv/bin/activate
-     ```
-7. **Install Dependencies**:
+     `source venv/bin/activate`
+
+5. **Install Dependencies**:
    
-   ```
-   pip install -r requirements.txt
-   ```
-9. **Run the Application**:
+   `pip install -r requirements.txt`
+
+6. **Run the Application**:
     
-    ```
-   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-    ```
+   `uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload`
 
 ## Usage
 
@@ -94,22 +80,17 @@ After the application is running, you can access the API at [http://localhost:80
    json
    ```
    {
-     "query": "Explain IPC section 131."
+     "query": "instigates any person to do that thing"
    }
    ```
 - **Response**: Legal advice related to the IPC section.
-  
-### Get IPC Sections:
-- **Endpoint**: /ipc_sections/
-- **Method**: GET
-- **Response**: List of IPC sections.
 
 ## Testing
 
 You can test the API using tools like Postman or cURL. Here’s an example of a cURL command to get legal advice:
 
 ```
-curl -X POST "http://localhost:8000/get_legal_advice/" -H "Content-Type: application/json" -d '{"query": "Explain IPC section 131."}'
+curl -X POST "http://localhost:8000/get_legal_advice/" -H "Content-Type: application/json" -d '{"query": "instigates any person to do that thing"}'
 ```
 
 ## License
