@@ -6,7 +6,7 @@ import numpy as np
 
 app = FastAPI()
 
-file_path = "E:/Shashank Singh/Coding/Nyaya using Llama/dataset/bnsdataset.xlsx"
+file_path = "bnsdataset.xlsx"
 dataset = pd.read_excel(file_path)
 
 required_columns = ['Section_Number', 'Title', 'Content', 'Explanation', 'Illustrations', 'Punishment']
