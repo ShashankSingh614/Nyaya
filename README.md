@@ -16,30 +16,14 @@ This Nyaya application provides legal advice based on the Indian Penal Code (IPC
 
 - Provides legal advice based on IPC sections.
 - Simple and intuitive API design with endpoints for different legal advice use cases.
-- Automatically generated API documentation accessible at /docs when the application is running.
+- Automatically generated API documentation accessible at `/docs` when the application is running.
 
 ## Requirements
 
-- Docker (if using Docker)
-- Python 3.6 or higher (if running locally)
+- Python 3.6 or higher.
 - An active Groq API key for using the Groq client.
 
 ## Installation
-
-### Using Docker
-1. **Install Docker**: Follow the instructions on the [official Docker website](https://www.docker.com/get-started) to install Docker on your machine.
-2. **Clone the Repository**:
-   
-   `git clone https://github.com/yourusername/your-repo.git`  
-   `cd your-repo`
-   
-3. **Build the Docker Image**:
-   
-   `docker build -t my-fastapi-app .`
-
-4. **Run the Docker Container**:
-   
-   `docker run -d -p 8000:8000 my-fastapi-app`
 
 ### Running Locally (Without Docker)
 1. **Install Python**: Follow the instructions on the [official Python website](https://www.python.org/downloads/) to install Python on your machine.
@@ -68,7 +52,7 @@ This Nyaya application provides legal advice based on the Indian Penal Code (IPC
 
 ## Usage
 
-After the application is running, you can access the API at [http://localhost:8000](http://localhost:8000).
+After the application is running, you can access the API at [https://nyayaapi.onrender.com](https://nyayaapi.onrender.com).
 
 ## API Endpoints
 
@@ -77,22 +61,7 @@ After the application is running, you can access the API at [http://localhost:80
 - **Method**: POST
 - **Request Body**:
   
-   json
-   ```
+   ```json
    {
      "query": "instigates any person to do that thing"
    }
-   ```
-- **Response**: Legal advice related to the IPC section.
-
-## Testing
-
-You can test the API using tools like Postman or cURL. Here’s an example of a cURL command to get legal advice:
-
-```
-curl -X POST "http://localhost:8000/get_legal_advice/" -H "Content-Type: application/json" -d '{"query": "instigates any person to do that thing"}'
-```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE file](/LICENSE.txt) for details.
