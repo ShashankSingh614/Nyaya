@@ -12,13 +12,16 @@ api_key = "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"
 file_path = "bnsdataset.xlsx"
 dataset = pd.read_excel(file_path)
 
-required_columns = ['Section_Number','Subsection_Number', 'Title', 'Content', 'Explanation', 'Exception', 'Illustrations', 'Punishment','Cross_References']
+# Handling NaN values in dataset
+dataset = dataset.fillna('No data available')  # Replace NaN with a placeholder
+
+required_columns = ['Section_Number', 'Subsection_Number', 'Title', 'Content', 'Explanation', 'Exception', 'Illustrations', 'Punishment', 'Cross_References']
 if not all(column in dataset.columns for column in required_columns):
     raise ValueError(f"Dataset must contain the following columns: {required_columns}")
 
 model = SentenceTransformer('all-MiniLM-L12-v2')
 
-explanations = dataset['Explanation'].astype(str).tolist()
+explanations = dataset['Content'].astype(str).tolist()
 explanation_embeddings = model.encode(explanations)
 
 class QueryRequest(BaseModel):
@@ -37,7 +40,7 @@ client = Groq(api_key=api_key)
 def generate_human_like_response(section_data):
     """Generate a human-like response using the Groq API."""
     prompt = (
-        f"Based on the following legal information, create a paragraph explanation for an Indian audience. Start with 'According to the Bharatiya Nyaya Sanhita (BNS),'. No mention of word India.:\n\n"
+        f"Based on the following legal information, create a paragraph explanation for an Indian audience. Start with 'According to the Bharatiya Nyaya Sanhita (BNS),'. No mention of word India. And mention exception if there is any:\n\n"
         f"Title: {section_data['Title']}\n"
         f"Content: {section_data['Content']}\n"
         f"Explanation: {section_data['Explanation']}\n"
@@ -50,9 +53,7 @@ def generate_human_like_response(section_data):
     try:
         completion = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
-            messages=[
-                {"role": "user", "content": prompt}
-            ],
+            messages=[{"role": "user", "content": prompt}],
             temperature=1,
             max_tokens=1024,
             top_p=1,
@@ -72,6 +73,8 @@ def generate_human_like_response(section_data):
 @app.post("/get_legal_advice/")
 async def get_legal_advice(request: QueryRequest):
     try:
+        print("The model is currently in the testing phase. Please be advised that some NaN (Not a Number) values may appear. These values are being handled as part of the ongoing validation process. We are working diligently to ensure the accuracy and reliability of the model, and appreciate your understanding during this phase.")
+        
         query_embedding = model.encode(request.query)
         similarities = util.cos_sim(query_embedding, explanation_embeddings)[0].tolist()
         best_match_idx = similarities.index(max(similarities))
@@ -81,6 +84,7 @@ async def get_legal_advice(request: QueryRequest):
             "Title": matched_row['Title'],
             "Content": matched_row['Content'],
             "Explanation": matched_row['Explanation'],
+            "Exception": matched_row['Exception'],
             "Illustrations": matched_row['Illustrations'],
             "Punishment": matched_row['Punishment']
         })
