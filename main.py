@@ -12,7 +12,7 @@ api_key = "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"
 file_path = "bnsdataset.xlsx"
 dataset = pd.read_excel(file_path)
 
-required_columns = ['Section_Number', 'Title', 'Content', 'Explanation', 'Illustrations', 'Punishment']
+required_columns = ['Section_Number','Subsection_Number', 'Title', 'Content', 'Explanation', 'Exception', 'Illustrations', 'Punishment','Cross_References']
 if not all(column in dataset.columns for column in required_columns):
     raise ValueError(f"Dataset must contain the following columns: {required_columns}")
 
@@ -41,6 +41,7 @@ def generate_human_like_response(section_data):
         f"Title: {section_data['Title']}\n"
         f"Content: {section_data['Content']}\n"
         f"Explanation: {section_data['Explanation']}\n"
+        f"Exception: {section_data.get('Exception', 'No exceptions mentioned')}\n"
         f"Illustrations: {section_data['Illustrations']}\n"
         f"Punishment: {section_data['Punishment']}\n\n"
         "Please provide a detailed, human-like explanation and reformat the illustrations into a cohesive paragraph."
@@ -58,8 +59,7 @@ def generate_human_like_response(section_data):
             stream=True,
             stop=None
         )
-        
-        # Extract and return the generated content
+
         response_text = ""
         for chunk in completion:
             response_text += chunk.choices[0].delta.content or ""
@@ -87,7 +87,9 @@ async def get_legal_advice(request: QueryRequest):
         
         response_message = {
             "Category": "Criminal Law",
-            "Section_Number": convert_numpy(matched_row['Section_Number']),
+            "Section Number": convert_numpy(matched_row['Section_Number']),
+            "Subsection Number": convert_numpy(matched_row['Subsection_Number']),
+            "Cross References": matched_row['Cross_References'],
             "Punishment": matched_row['Punishment'],
             "Explanation": human_like_response
         }
