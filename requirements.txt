@@ -7,3 +7,5 @@ torch
 transformers
 scipy
 openai
+openpyxl
+groq
