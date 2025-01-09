@@ -1,8 +1,6 @@
-fastapi
-pydantic
-pandas
-sentence-transformers
-numpy
-openai-groq
-uvicorn
-openpyxl
+fastapi==0.115.6
+pydantic==2.10.5
+pandas==2.2.3
+sentence-transformers==3.3.1
+numpy==1.24.3
+uvicorn==0.23.0
