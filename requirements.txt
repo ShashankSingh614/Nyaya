@@ -1,11 +1,8 @@
 fastapi
-uvicorn
+pydantic
 pandas
-numpy
 sentence-transformers
-torch
-transformers
-scipy
-openai
+numpy
+openai-groq
+uvicorn
 openpyxl
-groq
