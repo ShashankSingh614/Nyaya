@@ -6,6 +6,4 @@ sentence-transformers
 torch
 transformers
 scipy
-openai
 openpyxl
-groq
