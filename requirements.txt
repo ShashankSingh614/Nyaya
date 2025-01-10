@@ -6,4 +6,3 @@ sentence-transformers
 torch
 transformers
 scipy
-openpyxl
