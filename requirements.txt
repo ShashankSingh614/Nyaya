@@ -1,8 +1,6 @@
 fastapi
 uvicorn
 pandas
-numpy
+openpyxl
 sentence-transformers
-torch
-transformers
-scipy
+numpy
